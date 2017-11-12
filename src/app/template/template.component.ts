@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-template',
+  templateUrl: './template.component.html',
+  styleUrls: ['./template.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  title = 'app';
+export class TemplateComponent implements OnInit {
+
+ 
   data = this.getVersion();
   
     constructor(private _http: Http) {
@@ -24,6 +26,7 @@ export class AppComponent {
                           console.log(this.data);
                   });
     }
-
+  ngOnInit() {
+  }
 
 }
